@@ -23,6 +23,12 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(quantityMeasurement1.equals(quantityMeasurement2));
     }
 
+    @Test
+    public void givenFeet_WhenReferingToSame_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0.0,FEET);
+        QuantityMeasurement quantityMeasurement2 = quantityMeasurement1;
+        Assert.assertTrue(quantityMeasurement1.equals(quantityMeasurement2));
+    }
 
 
 }

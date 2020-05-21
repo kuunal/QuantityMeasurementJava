@@ -17,6 +17,8 @@ public class QuantityMeasurement {
     public boolean equals(Object obj) {
         if(obj == null)
             return false;
+        if(this==obj)
+            return true;
         QuantityMeasurement quantityMeasurement = (QuantityMeasurement) obj;
         return Double.compare(this.quantity,quantityMeasurement.quantity)==0;
 
