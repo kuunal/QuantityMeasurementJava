@@ -176,4 +176,52 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
     }
 
+    @Test
+    public void givenInches_WhenAdded_ReturnsSum_InInches(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(2,INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(2,INCH);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(4,sumInInches,0);
+    }
+
+    @Test
+    public void givenSingleInch_WhenForAddition_ReturnsSum_InInches(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(2,INCH);
+        double sumInInches = quantityMeasurement1.addQuantities(quantityMeasurement1);
+        Assert.assertEquals(2,sumInInches,0);
+    }
+
+
+    @Test
+    public void givenNoQuantities_WhenForAddition_ReturnsZero(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(2,INCH);
+        double sumInInches = quantityMeasurement1.addQuantities();
+        Assert.assertEquals(0,sumInInches,0);
+    }
+
+    @Test
+    public void givenOneFeet_AndTwoInch_WhenAdded_ReturnsSum_InInches(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(2,INCH);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(14,sumInInches,0);
+    }
+
+    @Test
+    public void givenFeets_WhenAdded_ReturnsSum_InInches(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,FEET);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(24,sumInInches,0);
+    }
+
+    @Test
+    public void givenInch_AndCentiMeter_WhenAdded_ReturnsSum_InInches(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(2,INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(2.5,CentiMeter);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(3,sumInInches,0);
+    }
+
+
 }

@@ -33,4 +33,17 @@ public class QuantityMeasurement {
     }
 
 
+    public double addQuantities(QuantityMeasurement ...quantityMeasurement) {
+        if(quantityMeasurement.length==0){
+            return 0;
+        }else if(quantityMeasurement.length==1){
+            return quantityMeasurement[0].quantity;
+        }else{
+            double total=0;
+            for(QuantityMeasurement quantityObject : quantityMeasurement){
+                total+=quantityObject.quantity;
+            }
+            return total;
+        }
+    }
 }
