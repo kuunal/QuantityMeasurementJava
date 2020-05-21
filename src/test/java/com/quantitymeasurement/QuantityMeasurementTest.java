@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static com.quantitymeasurement.enums.Units.FEET;
+import static com.quantitymeasurement.enums.Units.INCH;
 
 public class QuantityMeasurementTest {
 
@@ -54,9 +55,13 @@ public class QuantityMeasurementTest {
         }catch (QuantityMeasurementExceptions e){
             Assert.assertEquals("Negative lengths not allowed",e.getMessage());
         }
+    }
 
-
-
+    @Test
+    public void givenZeroInch_AndZeroFeet_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0,FEET);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0,INCH);
+        Assert.assertTrue(quantityMeasurement1.equals(quantityMeasurement));
     }
 
 
