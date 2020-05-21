@@ -7,12 +7,7 @@ import org.junit.Test;
 import static com.quantitymeasurement.enums.Units.FEET;
 
 public class QuantityMeasurementTest {
-    QuantityMeasurement quantityMeasurement ;
 
-    @Before
-    public void init(){
-        quantityMeasurement = new QuantityMeasurement();
-    }
 
     @Test
     public void givenFeet_WhenEqual_ReturnsTrue(){
@@ -20,6 +15,14 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement2 = new QuantityMeasurement(0.0,FEET);
         Assert.assertTrue(quantityMeasurement1.equals(quantityMeasurement2));
     }
+
+    @Test
+    public void givenFeet_WhenNull_ReturnsFalse(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0.0,FEET);
+        QuantityMeasurement quantityMeasurement2 = null;
+        Assert.assertFalse(quantityMeasurement1.equals(quantityMeasurement2));
+    }
+
 
 
 }
