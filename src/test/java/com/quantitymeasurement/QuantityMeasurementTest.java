@@ -58,11 +58,20 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenInch_WhenNull_ReturnsFalse(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0.0,INCH);
+        QuantityMeasurement quantityMeasurement2 = null;
+        Assert.assertFalse(quantityMeasurement1.equals(quantityMeasurement2));
+    }
+
+
+    @Test
     public void givenZeroInch_AndZeroFeet_WhenCompared_ReturnsTrue(){
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0,FEET);
         QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0,INCH);
         Assert.assertTrue(quantityMeasurement1.equals(quantityMeasurement));
     }
+
 
 
 }
