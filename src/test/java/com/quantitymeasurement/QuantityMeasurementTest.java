@@ -245,13 +245,27 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(7.57,sumInInches,0.1);
     }
 
+
     @Test
-    public void givenOneLitre_AndThousandMiliLitre_WhenAdded_ReturnsSumInLitres(){
-        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,LITRE);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,MILI_LITRE);
-        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
-        Assert.assertEquals(2,sumInInches,0.1);
+    public void givenOneKiloGram_And1000Grams_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,KILO_GRAM);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,GRAM);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
     }
 
+    @Test
+    public void givenOneTon_And1000KiloGram_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,TONNE);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,KILO_GRAM);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenOneTon_AndThousandGram_WhenForAddition_ReturnsTotal_InKiloGrams(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,TONNE);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,GRAM);
+        double totalInKiloGram = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(1001,totalInKiloGram,0);
+    }
 
 }
