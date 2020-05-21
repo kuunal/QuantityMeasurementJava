@@ -9,7 +9,9 @@ public class QuantityMeasurement {
 
     QuantityMeasurement(){}
 
-    QuantityMeasurement(Double quantity,Units units){
+    QuantityMeasurement(double quantity,Units units){
+        if (quantity<0)
+            throw new QuantityMeasurementExceptions("Negative lengths not allowed", QuantityMeasurementExceptions.TYPE.NEGATIVE_QUANTITY);
         this.quantity = quantity*units.unit;
     }
 
@@ -25,9 +27,4 @@ public class QuantityMeasurement {
     }
 
 
-    Double getConvertedUnit(double length, Units unit){
-        if(unit.unit>=0)
-            return unit.unit * length;
-        throw new QuantityMeasurementExceptions("Negative lengths not allowed", QuantityMeasurementExceptions.TYPE.NEGATIVE_QUANTITY);
-    }
 }
