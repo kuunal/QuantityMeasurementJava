@@ -1,9 +1,9 @@
-package com.quantitymeasurement;
+package com.quantitymeasurement.enums;
 
 public enum Units {
     FEET(12);
 
-    double unit;
+    public double unit;
 
     Units(double unit){
         this.unit=unit;
