@@ -223,5 +223,19 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3,sumInInches,0);
     }
 
+    @Test
+    public void givenOneGallon_AndRespectiveLitres_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,GALLON);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(3.78,LITRE);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenOneLitre_AndThousandMiliLitre_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,LITRE);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,MILI_LITRE);
+        Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
+    }
+
 
 }
