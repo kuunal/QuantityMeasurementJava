@@ -64,6 +64,12 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(quantityMeasurement1.equals(quantityMeasurement2));
     }
 
+    @Test
+    public void givenInch_WhenReferingToSame_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(0.0,INCH);
+        QuantityMeasurement quantityMeasurement2 = quantityMeasurement1;
+        Assert.assertTrue(quantityMeasurement1.equals(quantityMeasurement2));
+    }
 
     @Test
     public void givenZeroInch_AndZeroFeet_WhenCompared_ReturnsTrue(){
