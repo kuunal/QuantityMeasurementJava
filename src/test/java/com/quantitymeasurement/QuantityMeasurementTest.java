@@ -2,11 +2,9 @@ package com.quantitymeasurement;
 
 import com.quantitymeasurement.exception.QuantityMeasurementExceptions;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import static com.quantitymeasurement.enums.Units.FEET;
-import static com.quantitymeasurement.enums.Units.INCH;
+import static com.quantitymeasurement.enums.Units.*;
 
 public class QuantityMeasurementTest {
 
@@ -126,6 +124,48 @@ public class QuantityMeasurementTest {
     public void givenTwelveInch_AndOneFeet_WhenCompared_ReturnsTrue(){
         QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(12,INCH);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,FEET);
+        Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
+    }
+
+    @Test
+    public void givenThreeFeet_AndOneYard_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(3,FEET);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1, YARD);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenOneFeet_AndOneYard_WhenCompared_ReturnsFalse(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,FEET);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1, YARD);
+        Assert.assertFalse(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenOneInch_AndOneYard_WhenCompared_ReturnsFalse(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,INCH);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1, YARD);
+        Assert.assertFalse(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenOneYard_AndThirtySixInch_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,YARD);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(36,INCH);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenThirtySixInch_AndOneYard_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(36,INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,YARD);
+        Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
+    }
+
+    @Test
+    public void givenOneYardAndThreeFeet_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1, YARD);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(3,FEET);
         Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
     }
 
