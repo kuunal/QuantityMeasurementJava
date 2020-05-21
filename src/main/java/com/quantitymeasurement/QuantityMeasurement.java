@@ -16,6 +16,11 @@ public class QuantityMeasurement {
         this.quantity = quantity*units.unit;
     }
 
+    public boolean checkEqual(Object obj){
+        QuantityMeasurement quantityMeasurement = (QuantityMeasurement) obj;
+        return Double.compare(this.quantity,quantityMeasurement.quantity)==0;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj == null)
@@ -24,9 +29,7 @@ public class QuantityMeasurement {
             return true;
         if(this.getClass()==obj.getClass())
             return true;
-        QuantityMeasurement quantityMeasurement = (QuantityMeasurement) obj;
-        return Double.compare(this.quantity,quantityMeasurement.quantity)==0;
-
+        return false;
     }
 
 
