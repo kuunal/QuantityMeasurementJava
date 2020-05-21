@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.quantitymeasurement.QuantityMeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-21T22:28:38" hostname="DESKTOP-196HMRI" time="0.003">
+<testsuite name="com.quantitymeasurement.QuantityMeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-21T22:36:47" hostname="DESKTOP-196HMRI" time="0.003">
   <properties/>
-  <testcase name="givenInch_WhenReferingToSame_ReturnsTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.003"/>
+  <testcase name="givenInches_WhenValuesAreEqual_ReturnsTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
