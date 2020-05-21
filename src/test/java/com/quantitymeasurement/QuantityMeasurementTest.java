@@ -237,5 +237,21 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
     }
 
+    @Test
+    public void givenGallonAndLitres_WhenForAddition_ReturnsSumInLitres(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,GALLON);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(3.78,LITRE);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(7.57,sumInInches,0.1);
+    }
+
+    @Test
+    public void givenOneLitre_AndThousandMiliLitre_WhenAdded_ReturnsSumInLitres(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,LITRE);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1000,MILI_LITRE);
+        double sumInInches = quantityMeasurement.addQuantities(quantityMeasurement,quantityMeasurement1);
+        Assert.assertEquals(2,sumInInches,0.1);
+    }
+
 
 }
