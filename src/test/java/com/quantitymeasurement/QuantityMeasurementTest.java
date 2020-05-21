@@ -169,4 +169,11 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
     }
 
+    @Test
+    public void givenTwoInch_AndFiveCentiMeter_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(2,INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(5,CentiMeter);
+        Assert.assertTrue(quantityMeasurement1.checkEqual(quantityMeasurement));
+    }
+
 }
