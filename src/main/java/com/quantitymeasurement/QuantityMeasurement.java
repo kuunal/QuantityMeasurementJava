@@ -13,7 +13,10 @@ public class QuantityMeasurement {
     QuantityMeasurement(double quantity,Units units){
         if (quantity<0)
             throw new QuantityMeasurementExceptions("Negative lengths not allowed", QuantityMeasurementExceptions.TYPE.NEGATIVE_QUANTITY);
-        this.quantity = quantity*units.unit;
+        if(units.equals(Units.CELSIUS))
+            this.quantity = (quantity*9/5)+32;
+        else
+            this.quantity = quantity*units.unit;
     }
 
     public boolean checkEqual(Object obj){

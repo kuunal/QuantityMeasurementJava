@@ -268,4 +268,10 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(1001,totalInKiloGram,0);
     }
 
+    @Test
+    public void givenTwoHundredAndTwoFarenheit_AndHundredCelsius_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(212,FARENHEIT);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(100,CELSIUS);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
 }
