@@ -268,4 +268,34 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(1001,totalInKiloGram,0);
     }
 
+    @Test
+    public void givenTwoHundredAndTwoFarenheit_AndHundredCelsius_WhenCompared_ReturnsTrue(){
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(212,FARENHEIT);
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(100,CELSIUS);
+        Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+    }
+
+    @Test
+    public void givenTwo_DifferentQuantity_WhenCompared_ThrowsException(){
+        try {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,FARENHEIT);
+            QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,INCH);
+            Assert.assertTrue(quantityMeasurement.checkEqual(quantityMeasurement1));
+        }catch (QuantityMeasurementExceptions e){
+            Assert.assertEquals("Different quantites cannot be compared",e.getMessage());
+        }
+    }
+
+
+    @Test
+    public void givenTwo_DifferentQuantity_WhenAdded_ThrowsException(){
+        try {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement(1,FARENHEIT);
+            QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1,INCH);
+            quantityMeasurement.addQuantities(quantityMeasurement1,quantityMeasurement);
+        }catch (QuantityMeasurementExceptions e){
+            Assert.assertEquals("Different quantites cannot be added",e.getMessage());
+        }
+    }
+
 }
